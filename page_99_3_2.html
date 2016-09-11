@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<meta charset="utf-8"></meta>	
+	<script type="text/javascript" src=" vendor/canvasjs.min.js"></script><!--跟server講 去某處要資料-->
+	
+	
+<script>
+
+/*============global 變數區============*/
+
+// 用json打包下面這些值 往後台丟   callback  tp1  tp2 ....等
+var get_data_1 = "waiting_data..."
+var get_data_2 = "waiting_data..."
+var get_data_3 = "waiting_data..."
+var get_data_4 = "waiting_data..."
+var get_data_5 = "waiting_data..."
+
+
+
+// 接收後台丟過來的json  拆給下面這些變數
+var data_0 = "200"//此行特別處理*/
+
+var data_1 = "400"
+var data_2 = "400"
+var data_3 = "400"
+var data_4 = "400"
+var data_5 = "400"
+var data_6 = "400"
+var data_7 = "400"
+
+var data_8 = "waiting_data..."
+var data_9 = "waiting_data..."
+var data_10= "waiting_data..."
+var data_11 = "waiting_data..."
+var data_12 = "waiting_data..."
+var data_13= "waiting_data..."
+var data_14= "waiting_data..."
+
+var data_15= "waiting_data..."
+var data_16= "waiting_data..."
+var data_17 = "waiting_data..."
+var data_18 = "waiting_data..."
+var data_19 = "waiting_data..."
+var data_20 = "waiting_data..."
+var data_21 = "waiting_data..."
+
+var data_22= "waiting_data..."
+var data_23 = "waiting_data..."
+var data_24 = "waiting_data..."
+var data_25 = "waiting_data..."
+var data_26= "waiting_data..."
+var data_27= "waiting_data..."
+var data_28= "waiting_data..."
+
+var data_29= "waiting_data..."
+var data_30= "waiting_data..."
+var data_31= "waiting_data..."
+var data_32= "waiting_data..."
+var data_33= "waiting_data..."
+var data_34= "waiting_data..."
+var data_35= "waiting_data..."
+
+var data_36= "waiting_data..."
+var data_37= "waiting_data..."
+var data_38= "waiting_data..."
+var data_39= "waiting_data..."
+var data_40= "waiting_data..."
+var data_41= "waiting_data..."
+var data_42= "waiting_data..."
+
+var data_43= "waiting_data..."
+var data_44= "waiting_data..."
+var data_45= "waiting_data..."
+var data_46= "waiting_data..."
+var data_47= "waiting_data..."
+var data_48= "waiting_data..."
+var data_49= "waiting_data..."
+
+var data_50= "waiting_data..."
+var data_51= "waiting_data..."
+var data_52= "waiting_data..."
+var data_53= "waiting_data..."
+var data_54= "waiting_data..."
+var data_55= "waiting_data..."
+var data_56= "waiting_data..."
+
+var data_57= "waiting_data..."
+var data_58= "waiting_data..."
+var data_59= "waiting_data..."
+var data_60= "waiting_data..."
+var data_61= "waiting_data..."
+var data_62= "waiting_data..."
+var data_63= "waiting_data..."
+
+
+var gata_0=999;//宣告宣告gata_0=999 其中999是我隨意給的數值
+var gata_1=999;
+var gata_2=999;
+var gata_3=999;
+var gata_4=999;
+var gata_5=999;
+var gata_6=999;
+
+$(document).ready(function()
+{
+
+
+	$("#btn_1").click(function(){             //按btn_1 會發生的事情如下
+		get_data_1 = $("#ss1").val()
+		get_data_2 = $("#ss2").val()           // SIN  SQU  TRI       //從 ss2 取值 給 get_data_2 
+		get_data_3 = $("#ss3").val()           
+		get_data_4 = $("#ss4").val()          	
+		
+		  //var str = "http://192.168.5.22:8888?callback=?" + "&tp1=" //
+		var str = "http://192.168.5.22:8888?callback=?" + "&fn=1" + "&tp1=" + get_data_2 + "&tp2=" + get_data_3 + "&tp3=" + get_data_4 /*+ "&tp4=" + get_data_5 ;*/   //?等於get的意思 記得要開MCU和PYTHON(伺服器)
+		$.getJSON( str, function (json) { mypack1(json) } );   // 丟str 到後台，拿回來json，叫mypack1處理json，總共兩個動作
+		console.log(get_data_4);
+		
+	});
+
+	$("#btn_2").click(function(){             //按btn_2 會發生的事情如下
+		get_data_1 = $("#ss5").val()
+		get_data_2 = $("#ss6").val()           // SIN  SQU  TRI         
+		get_data_3 = $("#ss7").val()           //從 ss7 取值 給 get_data_3
+		get_data_4 = $("#ss8").val()          	
+		get_data_5 = $("#ss9").val() 
+		
+		var str = "http://192.168.5.22:8888?callback=?" + "&fn=2" + "&tp1=" + get_data_2 + "&tp2=" + get_data_3 + "&tp3=" + get_data_4 + "&tp4=" + get_data_5 /* + "&tp5=" + get_data_6;*/   //?等於get的意思 記得要開MCU和PYTHON(伺服器)
+		$.getJSON( str, function (json) { mypack1(json) } );   // 丟str 到後台，拿回來json，叫mypack1處理json，總共兩個動作
+		console.log(get_data_4);
+		
+	});	
+
+	
+});
+
+
+
+var kk=[666,666,666,555,444,333,222];	
+var gg=[666,666,666,555,444,333,222];
+
+</script>	
+
+
+
+<script>	
+//----- 收後台的json值 例如:用gg或KK...等
+
+/*var gata_0=999;//宣告宣告gata_0=999 其中999是我隨意給的數值 但宣告在這script範圍中 會需要再宣告var gata_1=999...皆屬於區域變數
+與其這樣 乾脆直接在最上方宣告成全域變數比較方便*/
+
+
+	function mypack1(json)
+	{   
+	
+		gg=json.buf;	  //將json內的buff資料，存到gg
+		//console.log(json.buf);	json.buf是個很長的變數
+		/*var gata = [];
+		for(var i; i<=6; i++){
+			gata[i] = gg[i];
+		}*/
+		
+		gata_0 =gg[0]	
+		gata_1 =gg[1] ; 
+		gata_2 =gg[2] ; 
+		gata_3 =gg[3] ; 
+		gata_4 =gg[4] ; 
+		gata_5 =gg[5] ; 
+		gata_6 =gg[6] ; 
+	}
+
+	
+	
+/*var data_0=2000;//宣告data_0=2000 其中2000是我隨意給的數值 但(同153行)*/	
+	
+	function mypack2(json)
+	{
+		kk = json.buf;     //將json內的buff資料，存到kk
+		//console.log(json.buf);	json.buf是個很長的變數
+		
+		
+		data_0 = json.buf[0]	
+		data_1 = json.buf[1] ; /* data_1 = kk[1] ; */
+		data_2 = kk[2] ; 
+		data_3 = kk[3] ; 
+		data_4 = kk[4] ; 
+		data_5 = kk[5] ; 
+		data_6 = kk[6] ; 
+		data_7 = kk[7] ;
+		data_8 = kk[8] ; 
+		data_9 = kk[9] ;
+		data_10 = json.buf[10]	
+		data_11 = json.buf[11] ; 
+		data_12 = kk[12] ; 
+		data_13 = kk[13] ; 
+		data_14 = kk[14] ; 
+		data_15 = kk[15] ; 
+		data_16 = kk[16] ; 
+		data_17 = kk[17] ;
+		data_18 = kk[18] ; 
+		data_19 = kk[19] ;
+		data_20 = json.buf[20]	
+		data_21 = json.buf[21] ; 
+		data_22 = kk[22] ; 
+		data_23 = kk[23] ; 
+		data_24 = kk[24] ; 
+		data_25 = kk[25] ; 
+		data_26 = kk[26] ; 
+		data_27 = kk[27] ;
+		data_28 = kk[28] ; 
+		data_29 = kk[29] ;
+		data_30 = json.buf[30]	
+		data_31 = json.buf[31] ; 
+		data_32 = kk[32] ; 
+		data_33 = kk[33] ; 
+		data_34 = kk[34] ; 
+		data_35 = kk[35] ; 
+		data_36 = kk[36] ; 
+		data_37 = kk[37] ;
+		data_38 = kk[38] ; 
+		data_39 = kk[39] ;
+		data_40 = json.buf[40]	
+		data_41 = json.buf[41] ; 
+		data_42 = kk[42] ; 
+		data_43 = kk[43] ; 
+		data_44 = kk[44] ; 
+		data_45 = kk[45] ; 
+		data_46 = kk[46] ; 
+		data_47 = kk[47] ;
+		data_48 = kk[48] ; 
+		data_49 = kk[49] ;
+		data_50 = json.buf[50]	
+		data_51 = json.buf[51] ; 
+		data_52 = kk[52] ; 
+		data_53 = kk[53] ; 
+		data_54 = kk[54] ; 
+		data_55 = kk[55] ; 
+		data_56 = kk[56] ; 
+		data_57 = kk[57] ;
+		data_58 = kk[58] ; 
+		data_59 = kk[59] ;
+		data_60 = json.buf[60]	
+		data_61 = json.buf[61] ; 
+		data_62 = kk[62] ; 
+		data_63 = kk[63] ; 
+		
+		
+	}
+
+function btn_get_1(){
+
+		var str = "http://192.168.5.22:8888?callback=?" + "&fn=4" ;//?等於get的意思 記得要開MCU和PYTHON(伺服器)
+		$.getJSON( str, function (json) { mypack1(json) } );      // html丟str 到後台，拿回來json，叫mypack1處理json
+
+
+        $("#test101").val(gata_0);                   // 把 值 從 gata_0 ~ gata_6  放到表格內 gata_0被後台處理掉了 所以從gata_1開始
+        $("#test102").val(gata_1);                  // $("#test102").val(    $("#ss0").val()   );    //把某個 "變數" 放到 表格的 value值內
+        $("#test103").val(gata_2);
+        $("#test104").val(gata_3);
+		$("#test105").val(gata_4);
+		$("#test106").val(gata_5);
+		$("#test107").val(gata_6);
+
+		
+};	
+	
+function btn_get(){
+
+		var str = "http://192.168.5.22:8888?callback=?" + "&fn=5" ;//?等於get的意思 記得要開MCU和PYTHON(伺服器)
+		$.getJSON( str, function (json) { mypack2(json) } );	 // html丟str 到後台，拿回來json，叫mypack2處理json
+		
+				    
+              
+        $("#test1").val(data_0);                   // 把 值 從 data_0 ~ data_6  放到表格內 data_0被後台處理掉了 所以從data_1開始
+        $("#test2").val(data_1);                  // $("#test2").val(    $("#ss0").val()   );    //把某個 "變數" 放到 表格的 value值內
+        $("#test3").val(data_2);
+        $("#test4").val(data_3);
+        $("#test5").val(data_4);
+        $("#test6").val(data_5);	
+		$("#test7").val(data_6);                   
+        
+		$("#test8").val(data_7);
+        $("#test9").val(data_8);
+        $("#test10").val(data_9);
+        $("#test11").val(data_10);
+        $("#test12").val(data_11);	
+		$("#test13").val(data_12);                   
+        $("#test14").val(data_13);
+		
+        $("#test15").val(data_14);
+        $("#test16").val(data_15);
+        $("#test17").val(data_16);
+        $("#test18").val(data_17);	
+		$("#test19").val(data_18);
+		$("#test20").val(data_19);
+        $("#test21").val(data_20);
+		
+        $("#test22").val(data_21);
+        $("#test23").val(data_22);
+        $("#test24").val(data_23);	
+		$("#test25").val(data_24);                   
+        $("#test26").val(data_25);
+        $("#test27").val(data_26);
+        $("#test28").val(data_27);
+        
+		$("#test29").val(data_28);
+        $("#test30").val(data_29);			
+		$("#test31").val(data_30);                   
+        $("#test32").val(data_31);
+        $("#test33").val(data_32);
+        $("#test34").val(data_33);
+        $("#test35").val(data_34);
+        
+		$("#test36").val(data_35);	
+		$("#test37").val(data_36);                   
+        $("#test38").val(data_37);
+        $("#test39").val(data_38);
+        $("#test40").val(data_39);
+        $("#test41").val(data_40);
+        $("#test42").val(data_41);
+		$("#test43").val(data_42);                   
+        
+		$("#test44").val(data_43);
+        $("#test45").val(data_44);
+        $("#test46").val(data_45);
+        $("#test47").val(data_46);
+        $("#test48").val(data_47);
+		$("#test49").val(data_48);                   
+        $("#test50").val(data_49);
+        
+		$("#test51").val(data_50);
+        $("#test52").val(data_51);
+        $("#test53").val(data_52);
+        $("#test54").val(data_53);
+		$("#test55").val(data_54);
+		$("#test56").val(data_55);
+        $("#test57").val(data_56);
+        
+		$("#test58").val(data_57);
+        $("#test59").val(data_58);
+        $("#test60").val(data_59);
+		$("#test61").val(data_60);
+        $("#test62").val(data_61);
+        $("#test63").val(data_62);
+		
+	 };
+
+
+var myVar = setInterval(btn_get, 3000)
+var myVar = setInterval(btn_get_1, 3000)
+</script>
+
+
+<style >
+	table, th, td {
+    border: 2px solid black;
+    padding: 0px;
+	}
+	table {
+	width: 10%
+    <!-- border-spacing: 1px; -->
+	}
+	</style>
+
+<!--  =========canvas==========  -->
+	<script type="text/javascript">
+	window.onload = function () {
+	//data0 = int(data_0)
+
+	//var yy = []
+	//test = "1";
+	//pps = int("1");
+	//console.log(pps);
+	//yy[0]=1;
+	
+    var yy =[
+  parseInt(data_0)
+, parseInt(data_1)
+, parseInt(data_2)
+, parseInt(data_3)
+, parseInt(data_4)
+, parseInt(data_5)
+, parseInt(data_6)
+, parseInt(data_7)
+, parseInt(data_8)
+, parseInt(data_9)
+, parseInt(data_10)
+, parseInt(data_11)
+, parseInt(data_12)
+, parseInt(data_13)
+, parseInt(data_14)
+, parseInt(data_15)
+, parseInt(data_16)
+, parseInt(data_17)
+, parseInt(data_18)
+, parseInt(data_19)
+, parseInt(data_20)
+, parseInt(data_21)
+, parseInt(data_22)
+, parseInt(data_23)
+, parseInt(data_24)
+, parseInt(data_25)
+, parseInt(data_26)
+, parseInt(data_27)
+, parseInt(data_28)
+, parseInt(data_29)
+, parseInt(data_30)
+, parseInt(data_31)
+, parseInt(data_32)
+, parseInt(data_33)
+, parseInt(data_34)
+, parseInt(data_35)
+, parseInt(data_36)
+, parseInt(data_37)
+, parseInt(data_38)
+, parseInt(data_39)
+, parseInt(data_40)
+, parseInt(data_41)
+, parseInt(data_42)
+, parseInt(data_43)
+, parseInt(data_44)
+, parseInt(data_45)
+, parseInt(data_46)
+, parseInt(data_47)
+, parseInt(data_48)
+, parseInt(data_49)
+, parseInt(data_50)
+, parseInt(data_51)
+, parseInt(data_52)
+, parseInt(data_53)
+, parseInt(data_54)
+, parseInt(data_55)
+, parseInt(data_56)
+, parseInt(data_57)
+, parseInt(data_58)
+, parseInt(data_59)
+, parseInt(data_60)
+, parseInt(data_61)
+, parseInt(data_62)
+
+];//input
+	
+    var dp = [];//output
+	
+	/*var dp1 = [];//output
+	
+	var dp2 = [];//output*/
+	
+    
+	//var y = 0;
+    
+	var nx = 0;//x軸起始點
+	
+//-----------------------------------------------------	
+	yy.forEach(function(e){
+	    dp.push({ x: nx, y: e });//{x:1,y:314}
+		
+		/*dp1.push({ x: nx, y: e*2 });//{x:1,y:314} x:欄位名稱, y:數值
+		
+		dp2.push({ x: nx, y: e*4 });//{x:1,y:314} x:欄位名稱, y:數值*/
+		
+		nx++;
+	});
+	
+	
+    /*for ( var i = 0; i < 10000; i++ ) {
+      
+      y += Math.round(5 + Math.random() * (-5 - 5));	
+      dp.push({ y: y});
+    }*/
+    
+    var chart = new CanvasJS.Chart("id1",
+    {
+      animationEnabled: true,
+      zoomEnabled: true,
+      
+      title:{text: "頻率響應曲線圖" }, 
+       axisY :{
+        title: "Y=電路增益 (Gain)",
+        suffix: " Gain"
+      },
+      animationEnabled: true,
+      axisX :{
+        title: "X=輸出頻率 (Hz)",
+        suffix: " Hz"
+      },	      
+      data: [ 
+	  //{type: "line",dataPoints: dp },
+	  {type: "spline",dataPoints: dp },
+	  /*{type: "line",dataPoints: dp1 },
+	  {type: "spline",dataPoints: dp2 }*/
+	  
+	  ]
+    });
+    chart.render();
+}
+</script>
+	
+
+
+
+</head>
+<body>
+    
+	<!-- p > key : <input id="ss1" type='text' name='voltage' placeholder='請輸入Key值'> </p> -->
+	<select id="ss2" style="position:absolute ; left:5%;top:30px;width:100px">
+		<option value="SIN">正弦波</option>    
+　		<option value="SQU">方波</option>
+　		<option value="TRI">三角波</option>
+　	</select>
+	<p > <input id="ss3" type='text' name='voltage' style="position:absolute ; left:13%;top:30px;width:100px" placeholder='請輸入電壓 V'>  </p>	
+	<p > <input id="ss4" type='text' name='frequency' style="position:absolute ; left:21%;top:30px;width:100px" placeholder='請輸入頻率 Hz'>  </p>
+
+	<button style="width:50% ;position:absolute ; left:5%;top:10%;width:25%" id="btn_1">設定儀器參數-單次</button>
+
+
+	
+		
+	<!-- <p > key : <input id="ss5" type='text' name='voltage' placeholder='請輸入Key值'> </p> -->
+	
+	<!-- <select id="ss6" style="position:absolute ; left:50%;top:30px;width:100px" > --> 
+	<select id="ss6" style="position:absolute ; left:5%;top:275px;width:100px">
+		<option value="SIN">正弦波</option>    
+　		<option value="SQU">方波</option>
+　		<option value="TRI">三角波</option>
+　	</select>
+	<!-- <p > <input id="ss7" type='text' name='voltage' style="position:absolute ; left:58%;top:30px;width:100px" placeholder='請輸入電壓 V'>  </p>
+	<p > <input id="ss8" type='text' name='frequency'  style="position:absolute ; left:66%;top:30px;width:115px" placeholder='請輸入起始頻率 Hz'>  </p>
+	<p > <input id="ss9" type='text' name='frequency'  style="position:absolute ; left:75.5%;top:30px;width:115px" placeholder='請輸入終止頻率 Hz'>  </p>
+	
+	<button id="btn_2" style="position:absolute ; right:25%;top:10%;width:25%">設定儀器參數-頻率響應</button>  -->
+	
+	
+	<p > <input id="ss7" type='text' name='voltage' style="position:absolute ; left:13%;top:275px;width:100px" placeholder='請輸入電壓 V'>  </p>
+	<p > <input id="ss8" type='text' name='frequency'  style="position:absolute ; left:21%;top:275px;width:115px" placeholder='請輸入起始頻率 Hz'>  </p>
+	<p > <input id="ss9" type='text' name='frequency'  style="position:absolute ; left:30.5%;top:275px;width:115px" placeholder='請輸入終止頻率 Hz'>  </p>
+	
+	<button id="btn_2" style="position:absolute ; left:5%;top:50%;width:25%">設定儀器參數-頻率響應</button>
+
+
+<!--<p> key 值</p>
+	<p>輸入電壓 (V)</p>
+	<p>輸入頻率 (Hz)</p>
+	<p>輸出電壓 (V)</p>
+	<p>輸出頻率 (Hz)</p>
+	<p>電路增益 (Gain) </p>	 -->
+    
+	<!-- <table style=" position:absolute ; right:3%;top:15%;"> -->
+	<table style=" position:absolute ; left:1%;top:56%;">
+	<tr>
+	<th><h4>key 值</h4></th>
+	<th><h4>波型</h4></th>
+	<th><h4>輸入電壓 (V)</h4></th>
+	<th><h4>輸入頻率 (Hz)</h4></th>
+	<th><h4>輸出電壓 (V)</h4></th>
+	<th><h4>輸出頻率 (Hz)</h4></th>
+	<th><h4>電路增益 (Gain)</h4></th>
+	</tr>
+	<tr>
+		<td><input type="text" id="test1" value="0" size="10"></td>
+		<td><input type="text" id="test2" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test3" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test4" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test5" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test6" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test7" value="0" size="10"></td>
+	</tr>                                                 
+	                                                      
+	<tr>                                                  
+		<td><input type="text" id="test8" value="0" size="10"></td>
+		<td><input type="text" id="test9" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test10" value="0"size="10" style="color:red;"></td>
+		<td><input type="text" id="test11" value="0"size="10" style="color:red;"></td>
+		<td><input type="text" id="test12" value="0"size="10" style="color:green;"></td>
+		<td><input type="text" id="test13" value="0"size="10" style="color:green;"></td>
+		<td><input type="text" id="test14" value="0"size="10" ></td>
+	</tr>
+
+	<tr>
+		<td><input type="text" id="test15" value="0" size="10" ></td>
+		<td><input type="text" id="test16" value="0" size="10" style="color:red;" ></td>
+		<td><input type="text" id="test17" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test18" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test19" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test20" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test21" value="0" size="10" ></td>
+	</tr>                                                  
+                                                           
+	<tr>                                                   
+		<td><input type="text" id="test22" value="0" size="10" ></td>
+		<td><input type="text" id="test23" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test24" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test25" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test26" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test27" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test28" value="0" size="10" ></td>
+	</tr>                                                  
+                                                           
+	                                                       
+	<tr>                                                   
+		<td><input type="text" id="test29" value="0" size="10" ></td>
+		<td><input type="text" id="test30" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test31" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test32" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test33" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test34" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test35" value="0" size="10" ></td>
+	</tr>                                                  
+                                                           
+	<tr>                                                   
+		<td><input type="text" id="test36" value="0" size="10" ></td>
+		<td><input type="text" id="test37" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test38" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test39" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test40" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test41" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test42" value="0" size="10" ></td>
+	</tr>                                                  
+                                                           
+	<tr>                                                   
+		<td><input type="text" id="test43" value="0" size="10" ></td>
+		<td><input type="text" id="test44" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test45" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test46" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test47" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test48" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test49" value="0" size="10" ></td>
+	</tr>                                                  
+                                                           
+	<tr>                                                   
+		<td><input type="text" id="test50" value="0" size="10" ></td>
+		<td><input type="text" id="test51" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test52" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test53" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test54" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test55" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test56" value="0" size="10" ></td>
+	</tr>                                                  
+                                                           
+                                                           
+	<tr>                                                   
+		<td><input type="text" id="test57" value="0" size="10" ></td>
+		<td><input type="text" id="test58" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test59" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test60" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test61" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test62" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test63" value="0" size="10" ></td>
+	</tr>
+	
+	<table style=" position:absolute ; left:1%;top:15%;">
+	
+	<tr>
+	<th><h4>key 值</h4></th>
+	<th><h4>波型</h4></th>
+	<th><h4>輸入電壓 (V)</h4></th>
+	<th><h4>輸入頻率 (Hz)</h4></th>
+	<th><h4>輸出電壓 (V)</h4></th>
+	<th><h4>輸出頻率 (Hz)</h4></th>
+	<th><h4>電路增益 (Gain)</h4></th>
+	</tr>
+	
+	<tr>
+		<td><input type="text" id="test101" value="0" size="10" ></td>
+		<td><input type="text" id="test102" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test103" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test104" value="0" size="10" style="color:red;"></td>
+		<td><input type="text" id="test105" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test106" value="0" size="10" style="color:green;"></td>
+		<td><input type="text" id="test107" value="0" size="10"></td>
+	</tr>                                                 
+	                                                      
+</table>
+<div id="id1" style="height: 300px; width: 100%; position:absolute ; left:0%;top:125%;"></div><!--容器名稱叫做id1 -->
+
+</body>
+</html>
+
