@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+var ip_address_backend=192.168.5.131
+var port__backend =8888
+
+var data1=1299;
+
+var data2=1259;
+
+var data3=13799;
+
+var data4=45999;
+
+var data5=12999;
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $.getJSON(
+            "http://" + ip_address_backend + ":" + port__backend +"?callback=?&tp1=" + data1 + "&tp2=" + data2 +"&tp3=" + data3 +"&tp4="+ data4,
+            function(result){
+                $("div").text(result.buf);
+            }
+        );
+    });
+});
+</script>
+</head>
+<body>
+
+<button>Get JSON data</button>
+
+<div></div>
+
+</body>
+</html>
